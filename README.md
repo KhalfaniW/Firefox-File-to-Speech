@@ -1,4 +1,4 @@
--Deprecated-FirefoxAddonToTTS
+#-Deprecated-FirefoxAddonToTTS
 This is a firefox addon I made a while ago, it was used to convert the text files I had created into text.
 
 This addon works by looking at the text files in a folder that was pointed to by a Bash shell script.
