@@ -9,6 +9,6 @@ This method is deprecated because the [new method](https://github.com/KhalfaniWa
 
 This addon requires jpm to run ''' jpm -b /usr/lib/firefox/firefox run ''' 
 
-This addition is mostly for logging my work so all directories are hard coded into the scripts.
+This addition is mostly for logging my work so all directories are hard coded into the scripts but it can be used as a tool to study how firefox addons are made.
 
-refer to the [firefox addon documentation](https://developer.mozilla.org/en-US/Add-ons/SDK) for how this was made and may be used
+Refer to the [firefox addon documentation](https://developer.mozilla.org/en-US/Add-ons/SDK) for hints on how this was made and may be used
