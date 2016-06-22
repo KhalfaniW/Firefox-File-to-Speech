@@ -1,0 +1,7 @@
+#! /bin/bash
+
+voices=(Alice Daisy George Jenna John)
+for i in "${voices[@]}" 
+do
+mkdir -p /media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/"RESULTING FILES"/$i
+done

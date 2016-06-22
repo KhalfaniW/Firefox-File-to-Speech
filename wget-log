@@ -1,0 +1,11 @@
+--2016-02-23 21:10:19--  http://www.fromtexttospeech.com/output/0214955001456253886/10795274.mp3
+Resolving www.fromtexttospeech.com (www.fromtexttospeech.com)... 108.61.32.3
+Connecting to www.fromtexttospeech.com (www.fromtexttospeech.com)|108.61.32.3|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1321579 (1.3M) [audio/mpeg]
+Saving to: ‘/media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/RESULTING FILES/Alice/10.mp3’
+
+46% [=================>                     ] 613,790      290KB/s             50% [==================>                    ] 667,366      271KB/s             55% [====================>                  ] 728,182      258KB/s             62% [=======================>               ] 823,750      260KB/s  eta 2s     71% [==========================>            ] 942,486      279KB/s  eta 2s     82% [===============================>       ] 1,084,390    300KB/s  eta 2s     94% [===================================>   ] 1,246,566    326KB/s  eta 2s     94% [====================================>  ] 1,254,758    147KB/s  eta 0s     100%[======================================>] 1,321,579    155KB/s   in 8.3s   
+
+2016-02-23 21:10:33 (155 KB/s) - ‘/media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/RESULTING FILES/Alice/10.mp3’ saved [1321579/1321579]
+

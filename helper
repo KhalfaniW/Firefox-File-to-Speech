@@ -1,0 +1,58 @@
+#! /bin/bash
+
+
+echo Helping :D 
+voices=(Alice Daisy George Jenna John)
+
+while true
+do
+	# get initial index
+	filename=$(</media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/converttextfiles/index)
+	textfiles=(`ls /media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/Files2/*txt | sort -V`)
+
+	instructions=$(</media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/converttextfiles/console)
+	if [ $instructions == download ]
+	then
+		echo downloading...
+		index=0
+		for i in "${textfiles[@]}" 
+		do
+			i="${i##*/}" #splits string and gets val after last slash
+
+			   if [ $i == $filename ]
+			   then
+				echo $i and $filename
+				break
+			   fi
+			index=$(($index+1))
+		done
+		echo on index: $index
+
+		#check if there is anything to do 
+	
+		
+				while read line           
+				do      
+					if [ ${#line} -gt 3 ] #if line lenght greater than
+					then
+						url=${line:0:$((${#line}-2))} #from index zero to last characters; exclusive
+						voiceindex=${line:$((${#line}-1)):${#line}}
+						wget -O /media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/'RESULTING FILES'/${voices[$(($voiceindex-1))]}/$index.mp3 $url #download
+					fi
+				done </media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/converttextfiles/locations.txt
+			#erase elements 
+			echo "" > /media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/converttextfiles/locations.txt 
+			echo restart >/media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/converttextfiles/console
+			echo $(($index+1))
+			echo `basename ${textfiles[$(($index+1))]}` >/media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/converttextfiles/index #Write the next file
+			echo now reading `basename ${textfiles[$(($index+1))]}`
+	fi
+	
+	sleep 5s
+	#wake up later
+done
+#For Future Reference
+#echo "stuff">/path/to/file is to write to file
+#windowID=`xdotool search --name "From Text To Speech - Free online TTS service - Mozilla Firefox" | head -1` 
+#xdotool windowfocus $windowID
+#echo "THIS IS STUFF FOR THE FILE" > index.html
