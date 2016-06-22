@@ -1,8 +1,0 @@
-#! /bin/bash
-
-for time in {1..100}
-do
-jpm -b /usr/lib/firefox/firefox run
-clear
-done
-
