@@ -7,8 +7,8 @@ The addon then opens the text file and copies it into 5 instances of the website
 
 This method is deprecated because the [new method](https://github.com/KhalfaniWadlington/Convert-Book-or-PDF-To-Audio) for converting Pdfs and text files to audio is headless whereas this method requires multiple applications to run synchronously through the *console* text file liaison.
 
-It requires jpm to run ''' jpm -b /usr/lib/firefox/firefox run ''' and wget to download files
+This addon requires jpm to run ''' jpm -b /usr/lib/firefox/firefox run ''' 
 
-This is mostly for logging my work so all directories are hard coded into the scripts.
+This addition is mostly for logging my work so all directories are hard coded into the scripts.
 
 refer to the [firefox addon documentation](https://developer.mozilla.org/en-US/Add-ons/SDK) for how this was made and may be used
