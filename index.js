@@ -11,6 +11,7 @@ var index;
 var tryingtowrite =true;	
 var tabs = require("sdk/tabs");
 var linksaquired=[false,false,false,false,false];
+//create clickable button in firefox toolbar 
 var buttons = require('sdk/ui/button/action');
 var tabs = require("sdk/tabs");
 
@@ -67,7 +68,7 @@ function readAndSendToContentScript(path)//read actuall Book Text
 			var text = decoder.decode(array);   // Convert this array to a text	
 			//Add content Script
 			var tabs = require("sdk/tabs");
-			for (let tab of tabs)//all tabs in web browser
+			for (let tab of tabs)//all tabs in web browser denoting all the voices
 			{
 				if(tab.url.indexOf("fromtexttospeech.com")>-1)	{
 					var worker = tab.attach({  		 
@@ -75,7 +76,7 @@ function readAndSendToContentScript(path)//read actuall Book Text
 			  		});
 					worker.port.emit("write",text);//send message to contentscript
 				 	worker.port.on("content script", function(message) {//receives message from contentscript
-							var hash = parseInt(message.split("#")[1]);
+							var hash = parseInt(message.split("#")[1]);//the hash is the number denoting the voice
 
 							if(!linksaquired[hash-1])// if you have received the mp3 url from the tab
 							{	
@@ -93,11 +94,13 @@ function readAndSendToContentScript(path)//read actuall Book Text
 							}
 	
 							if(checkAll())
-							{
+							{	//tell console to download
 								writeToFile("console","download");
 								console.log("Success");
 								tryingtowrite=false;
+								//reset all
 								linksaquired=[false,false,false,false,false];
+								//wait a while to restart
 								timer = setInterval(waitToRestart, 1000);
 							}
 							
@@ -149,12 +152,12 @@ function writeToFile(path,info)
 { 
 	info=String(info);
 	let encoder = new TextEncoder();                                  
-	let array = encoder.encode(info);                
+	let array = encoder.encode(info); //create temp file             
 	let writepromise = OS.File.writeAtomic(path, info,          
 		{tmpPath: "/media/mint/617bfc7e-9f48-424e-a2c1-9076286517b7/converttextfiles/"+path+".tmp"});
   	writepromise.then(
 		function onFulfill(){
-		//don't worry about it
+		//don't worry about it if ift fails
 		},
 		function onReject(){
 			console.log("failed to write "+info +"to"+path);
